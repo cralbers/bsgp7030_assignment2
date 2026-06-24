@@ -4,34 +4,30 @@ options(device = function() pdf(file = NULL))
 library(ggplot2)
 
 
-# Ask user for inputs and save to variables 
-cat("Enter filename: ")
-filename <- readLines(con = "stdin", n = 1)
-cat("Enter column name for x values: ")
-x <- readLines(con = "stdin", n = 1)
-cat("Enter column name for y values: ")
-y <- readLines(con = "stdin", n = 1)
+args <- commandArgs(trailingOnly = TRUE)
+if (length(args) != 3) {
+  stop("Usage: Rscript linear_regression_r.R <filename> <x_column> <y_column>")
+}
+
+filename <- args[1]
+x_col <- args[2]
+y_col <- args[3]
+
+data <- read.csv(filename)
+formula <- as.formula(paste(y_col, "~", x_col))
+model <- lm(formula, data = data)
 
 
-# import csv dataset
-df <- read.csv(filename)
+plot <- ggplot(data, aes_string(x = x_col, y = y_col)) +
+  geom_point(color = "red") +
+  geom_smooth(method = "lm", color = "blue") +
+  ggtitle(paste(y_col, "vs", x_col)) +
+  xlab(x_col) +
+  ylab(y_col) +
+  theme_bw(base_size = 14)
 
-# # make a scatter plot of Salary (y) as a fx of YearsExperience (x)
-# plot(df$x, df$y, col="purple")
-
-# fit a linear regression model to the data (salary as a fx of years of experience)
-model <- lm(df[[y]] ~ df[[x]])
-
-
-# graph the raw data and the calculated regression line
-ggplot() +
-    geom_point(aes(x=df[[x]], y=df[[y]]), color='purple') +
-    geom_line(aes(x=df[[x]], y=predict(model, newdata=df)), color='red') +
-    ggtitle(paste(y, "vs", x)) +
-    xlab(x) +
-    ylab(y) +
-    theme_bw(base_size=16)
-ggsave("linear_regression_r_output.png")
+ggsave("linear_regression_r_output.png", plot)
+print(plot)
 
 # evaluate the model's performance 
 summary(model)
