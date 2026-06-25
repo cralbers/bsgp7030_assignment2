@@ -1,20 +1,15 @@
-#!/bin/bash
-set -eo pipefail
+#!/usr/bin/env bash
+# Export linear regression notebooks to executed .ipynb and .html files.
+#
+# Python deps: pip install -r requirements.txt
+# R deps (one-time): install.packages(c("ggplot2", "IRkernel")); IRkernel::installspec()
+set -euo pipefail
 cd "$(dirname "$0")"
-
-ENV_DIR="$(conda info --envs | awk '/assignment2-ai/ {print $NF; exit}')"
-if [[ -z "${ENV_DIR}" || ! -d "${ENV_DIR}" ]]; then
-  echo "conda env assignment2-ai not found; run: conda env create -f environment.yml" >&2
-  exit 1
-fi
-export PATH="${ENV_DIR}/bin:${PATH}"
 
 jupyter nbconvert --to notebook --execute linear_regression_python.ipynb \
   --output linear_regression_python.ipynb
-jupyter nbconvert --to html linear_regression_python.ipynb \
-  --output linear_regression_python.html
+jupyter nbconvert --to html linear_regression_python.ipynb
 
 jupyter nbconvert --to notebook --execute linear_regression_r.ipynb \
   --output linear_regression_r.ipynb
-jupyter nbconvert --to html linear_regression_r.ipynb \
-  --output linear_regression_r.html
+jupyter nbconvert --to html linear_regression_r.ipynb
