@@ -1,4 +1,4 @@
-# Reflection
+# Assignment 2 reflection
 
 ## Where did your manual code differ from the AI version structurally? (libraries chosen, function decomposition, CLI parsing, plot defaults)
 
@@ -12,6 +12,13 @@ The plots generated are pretty similar to the ones I made- some of the aesthetic
 
 ## Which one is more readable to you? Which one would another scientist understand faster?
 
+The AI didn't include script comments to explain stepwise what it is doing- seems like I would have had to ask for this explicitly. These scripts run simple commands that I am lucky to be familiar with, but it is good to know in the future that I would have to ask for included annotations. Given this caveat, my own script is more readable to me because of the comments explaining the steps it runs. I think another scientist would be able to understand my code faster because of the annotations.
+
+
 ## Did the AI introduce bugs you wouldn't have written? Did it skip steps you would have included?
 
+The AI accounted for possible bugs that I didn't and included checks at the beginning of the script to avoid errors later on. It didn't skip any steps I would have included. It did include a script to export the jupyter notebooks as opposed to doing it within the JupyterLab GUI, but ran into trouble getting that script to run correctly because it was having to activate a new conda env to export them because my base conda env is a little bit broken :) (working on fixing it)
+
 ## Did the AI version's CLI behave the way you'd expect, or did it require unusual invocation?
+
+The AI's version of the CLI behaved pretty much as expected- the arguments needed were similar to the ones I generated manually. I did tell the AI to take 3 arguments (filename, x-column and y-column) which is likely why it behaved as I expected.
