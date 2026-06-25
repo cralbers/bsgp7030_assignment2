@@ -10,7 +10,7 @@ This folder was built with Cursor Pro. The prompts below are the user requests u
 
 ## Prompt 1: Notebook project plan
 
-> Working within the ai subfoler and given the ai/@assignment2/ai/regression_data.csv file, plan a project that will generae jupyter notebooks, one in python and one in R, that import and read the csv, create a scatter plot of the data, fit a linear regression model, overlay the regression line onto he scatter plot, evauate the model's performance and save the notebooks as .ipynb and .html files. Do this without referencing the files present in the assignment2/manual folder
+> Working within the ai subfoler and given the assignment2/ai/regression_data.csv file, plan a project that will generae jupyter notebooks, one in python and one in R, that import and read the csv, create a scatter plot of the data, fit a linear regression model, overlay the regression line onto he scatter plot, evauate the model's performance and save the notebooks as .ipynb and .html files. Do this without referencing the files present in the assignment2/manual folder
 
 **Generated or planned files:**
 
@@ -23,6 +23,10 @@ This folder was built with Cursor Pro. The prompts below are the user requests u
 - `environment.yml`
 
 This prompt essentially duplicated the files present in my manual folder because I had already accidentally read those files into the chat history previously. I didn't realize this until I reviewed the notebooks individually.
+
+I revised the prompt to the one below, which worked without referencing the manual files.
+
+> Working within the ai subfolder and given the ai/regression_data.csv file, plan a project that will generate jupyter notebooks, one in python and one in R, that import and read the csv, create a scatter plot of the data, fit a linear regression model, overlay the regression line onto he scatter plot, evauate the model's performance and save the notebooks as .ipynb and .html files. Do this without referencing the files present in the assignment2/manual folder. Do not read any of the files in the assignment2 folder other than the regression_data.csv file.
 
 ---
 
