@@ -1,0 +1,13 @@
+name: assignment2-ai
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - jupyter
+  - nbconvert
+  - r-base
+  - r-ggplot2
+  - r-irkernel
