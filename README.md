@@ -63,6 +63,13 @@ Rscript linear_regression_r.r <FILENAME> <X_COL> <Y_COL>
 - executable scripts print the model fit to the terminal and export a graph of the regression model and data
 
 ## Installation Instructions
+### Clone repo
+Clone repository to download scripts.
+```
+git clone https://github.com/cralbers/bsgp7030_assignment2.git
+cd bsgp7030_assignment2
+```
+
 
 ### Conda environment installation
 A conda environment is recommended because it includes Python, R, Jupyter, and nbconvert together. From `assignment2`:
